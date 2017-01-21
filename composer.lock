@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "03eb6595aa5912aa937e25ca682b36e8",
+    "content-hash": "959293c8b8b12b2c578ae4db42058fe3",
     "packages": [
         {
             "name": "reactjs/react-php-v8js",
