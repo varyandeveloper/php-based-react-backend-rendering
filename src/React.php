@@ -9,6 +9,10 @@ namespace VarYans\ReactPHP;
 class React
 {
     /**
+     * @var React $_instance
+     */
+    protected static $_instance;
+    /**
      * @var \ReactJS $_react
      */
     protected $_react;
@@ -30,6 +34,7 @@ class React
 
         $this->_react = new \ReactJS($reactSource, $appSource);
         $this->setErrorHandler(null);
+        self::$_instance = $this;
     }
 
     /**
@@ -51,12 +56,26 @@ class React
 
     /**
      * @param string $component
-     * @param array $data
+     * @param array $props
+     * @return void
+     */
+    public static function forceRender($component, $props)
+    {
+        if(!self::$_instance){
+            self::$_instance = new React();
+        }
+
+        echo call_user_func_array([self::$_instance,"render"],array($component,$props));
+    }
+
+    /**
+     * @param string $component
+     * @param array $props
      * @return string
      */
-    public function render($component, $data)
+    public function render($component, $props)
     {
-        $this->_react->setComponent($component, $data);
+        $this->_react->setComponent($component, $props);
         return $this->_react->getMarkup();
     }
 }
