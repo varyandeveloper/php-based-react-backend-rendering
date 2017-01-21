@@ -18,8 +18,8 @@
     ],
     "autoload":{
         "psr-4":{
-            "VarYan\\ReactPHP\\":"./src",
-            "VarYan\\ReactPHP\\Test\\":"./test"
+            "VarYans\\ReactPHP\\":"./src",
+            "VarYans\\ReactPHP\\Test\\":"./test"
         }
     }
 }

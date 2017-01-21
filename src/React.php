@@ -1,6 +1,6 @@
 <?php
 
-namespace VarYan\ReactPHP;
+namespace VarYans\ReactPHP;
 
 /**
  * Class React

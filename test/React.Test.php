@@ -1,6 +1,6 @@
 <?php
 
-namespace VarYan\ReactPHP\Test;
+namespace VarYans\ReactPHP\Test;
 
 /**
  * Class ReactTest
