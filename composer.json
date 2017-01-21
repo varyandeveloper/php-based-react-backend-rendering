@@ -1,5 +1,5 @@
 {
-    "name": "user/php-based-react-backend-rendering",
+    "name": "varyan/php-based-react-backend-rendering",
     "description": "PHP based composer package to make rect rendering on backend",
     "type": "library",
     "require": {
