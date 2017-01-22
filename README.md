@@ -115,6 +115,8 @@ For MVC systems like...
     ```
         <?php
         
+        namespace App\Http\Controllers;
+        
         use VarYans\ReactPHP\React;
     
         class HomeController extends Controller{
