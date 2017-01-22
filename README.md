@@ -26,7 +26,107 @@ You can find how to install V8Js extension for...
 
 ## Usage
 
+For MVC systems like...
 
+* Codeigniter
+
+    * file application/config/config.php
+    
+    ```
+        //Add following lines
+        
+        \VarYans\ReactPHP\Config::setReactSource('path/to/to-es5-compiled/react/js/file');
+        \VarYans\ReactPHP\Config::setAppSource('path/to/to-es5-compiled/app/js/file');
+        
+        //optional you can add error handler for custom error catching
+        \VarYans\ReactPHP\Config::setErrorHandler(function(\V8JsException $exception){
+            // code coming here
+        });
+    ```
+    
+    * file application/config/route.php
+    
+    ```
+        //Add following line in your routes list
+        
+        $route['home/hello'] = "HomeController/Hello";
+    
+    ```
+    
+    * file application/controllers/HomeController.php
+    
+    ```
+        <?php
+        
+        use VarYans\ReactPHP\React;
+    
+        class HomeController extends CI_Controller{
+            /**
+            * @return void
+            */
+            public function hello(){
+                echo React::quickRender("Hello",[
+                    "name" => "User"
+                ]);
+            }
+        }
+    ```
+
+* Laravel 5.3 (version mentioned because laravel folders structure are different in different versions) 
+
+    * file bootstrap/app.php
+    
+    ```
+        //Add following lines
+        
+        \VarYans\ReactPHP\Config::setReactSource('path/to/to-es5-compiled/react/js/file');
+        \VarYans\ReactPHP\Config::setAppSource('path/to/to-es5-compiled/app/js/file');
+        
+        //optional you can add error handler for custom error catching
+        \VarYans\ReactPHP\Config::setErrorHandler(function(\V8JsException $exception){
+            // code coming here
+        });
+    ```
+    
+    * file routes/web.php
+    
+    ```
+        Route::get('/home/hello','HomeController@hello');
+        Route::get('/home/bye','HomeController@bye');
+    ```
+    
+    * file app/Http/Controllers/HomeController.php
+
+    ```
+        <?php
+        
+        use VarYans\ReactPHP\React;
+    
+        class HomeController extends Controller{
+            /**
+            * @return void
+            */
+            public function hello(){
+                return React::quickRender("Hello",[
+                    "name" => "User"
+                ]);
+            }
+            
+            /**
+            * if you want to use react component as part of your view 
+            * you can write it like this
+            * @return \View
+            */
+            public function bye(){
+                return view('bye',[
+                    "var1"=>"val1",
+                    "componentAbout"=>React::quickRender("Bye",[
+                        "prop1"=>"val1"
+                    ])
+                ]);
+            } 
+        }        
+    ```
 
 ## Versioning
 
