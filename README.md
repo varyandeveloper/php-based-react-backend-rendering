@@ -26,6 +26,17 @@ You can find how to install V8Js extension for...
 
 ## Usage
 
+
+* copy files and folders from example folder of vendor/varyan/php-based-react-backend-rendering in to your root directory
+    * create build folder inside folder where your index.php file located 
+    * open package.json file 
+        * if your index.php file inside different folder then your root 
+            * change build/react-build.min.js > 'folder name where index.php located'/build/react-bundle.min.js  
+            * change build/app.js > 'folder name where index.php located'/build/app.js
+    * In terminal run
+        * npm i && npm run make
+
+
 For MVC systems like...
 
 * Codeigniter
@@ -35,8 +46,8 @@ For MVC systems like...
     ```
         //Add following lines
         
-        \VarYans\ReactPHP\Config::setReactSource('path/to/to-es5-compiled/react/js/file');
-        \VarYans\ReactPHP\Config::setAppSource('path/to/to-es5-compiled/app/js/file');
+        \VarYans\ReactPHP\Config::setReactSource('path-to/build/react-bundle.min.js');
+        \VarYans\ReactPHP\Config::setAppSource('path-to/build/app.js');
         
         //optional you can add error handler for custom error catching
         \VarYans\ReactPHP\Config::setErrorHandler(function(\V8JsException $exception){
@@ -94,8 +105,8 @@ For MVC systems like...
     ```
         //Add following lines
         
-        \VarYans\ReactPHP\Config::setReactSource('path/to/to-es5-compiled/react/js/file');
-        \VarYans\ReactPHP\Config::setAppSource('path/to/to-es5-compiled/app/js/file');
+        \VarYans\ReactPHP\Config::setReactSource('path-to/build/react-bundle.min.js');
+        \VarYans\ReactPHP\Config::setAppSource('path-to/build/app.js');
         
         //optional you can add error handler for custom error catching
         \VarYans\ReactPHP\Config::setErrorHandler(function(\V8JsException $exception){
@@ -122,7 +133,7 @@ For MVC systems like...
         class HomeController extends Controller{
         
             /**
-            * @return void
+            * @return string
             */
             public function hello(){
                 return React::quickRender("Hello",[
@@ -145,19 +156,6 @@ For MVC systems like...
             } 
         }        
     ```
-    
-## Quick example
-
-Use backend in Usage part
-
-* copy files and folders from example folder in your root directory
-    * create build folder inside folder where your index.php file located 
-    * open package.json file 
-        * if your index.php file inside different folder then your root 
-            * change build/react-build.min.js > 'folder name where index.php located'/build/react-build.min.js  
-            * change build/app.js > 'folder name where index.php located'/build/app.js
-    * In terminal run
-        * npm i && npm run make
 
 ## Versioning
 

@@ -5,7 +5,7 @@
   "scripts": {
     "make": "npm run make-react && npm run make-app",
     "make-react": "browserify -t [ envify --NODE_ENV production ] src/React.js | uglifyjs > build/react-bundle.min.js",
-    "make-app": "babel --presets react src/App.jsx > build/table.js"
+    "make-app": "babel --presets react src/App.jsx > build/app.js"
   },
   "dependencies": {
     "babel-cli": "^6.3.17",
