@@ -154,8 +154,8 @@ Use backend in Usage part
     * create build folder inside folder where your index.php file located 
     * open package.json file 
         * if your index.php file inside different folder then your root 
-            * change build/react-build.min.js > <folder name where index.php located>/build/react-build.min.js  
-            * change build/app.js > <folder name where index.php located>/build/app.js
+            * change build/react-build.min.js > 'folder name where index.php located'/build/react-build.min.js  
+            * change build/app.js > 'folder name where index.php located'/build/app.js
     * In terminal run
         * npm i && npm run make
 
