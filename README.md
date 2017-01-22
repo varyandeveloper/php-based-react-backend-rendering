@@ -61,12 +61,27 @@ For MVC systems like...
         use VarYans\ReactPHP\React;
     
         class HomeController extends CI_Controller{
+        
             /**
             * @return void
             */
             public function hello(){
                 echo React::quickRender("Hello",[
                     "name" => "User"
+                ]);
+            }
+            
+             /**
+             * if you want to use react component as part of your view 
+             * you can write it like this
+             * @return \View
+             */           
+            public function bye(){
+                $this->load->view("bye",[
+                    "var1"=>"val1",
+                    "componentAbout"=>React::quickRender("Bye",[
+                        "prop1"=>"val1"
+                    ])                    
                 ]);
             }
         }
@@ -103,6 +118,7 @@ For MVC systems like...
         use VarYans\ReactPHP\React;
     
         class HomeController extends Controller{
+        
             /**
             * @return void
             */
@@ -127,6 +143,19 @@ For MVC systems like...
             } 
         }        
     ```
+    
+## Quick example
+
+Use backend in Usage part
+
+* copy files and folders from example folder in your root directory
+    * create build folder inside folder where your index.php file located 
+    * open package.json file 
+        * if your index.php file inside different folder then your root 
+            * change build/react-build.min.js > <folder name where index.php located>/build/react-build.min.js  
+            * change build/app.js > <folder name where index.php located>/build/app.js
+    * In terminal run
+        * npm i && npm run make
 
 ## Versioning
 
