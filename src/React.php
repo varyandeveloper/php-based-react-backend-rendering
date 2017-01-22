@@ -57,15 +57,15 @@ class React
     /**
      * @param string $component
      * @param array $props
-     * @return void
+     * @return string
      */
-    public static function forceRender($component, $props)
+    public static function quickRender($component, $props)
     {
         if(!self::$_instance){
             self::$_instance = new React();
         }
 
-        echo call_user_func_array([self::$_instance,"render"],array($component,$props));
+        return call_user_func_array([self::$_instance,"render"],array($component,$props));
     }
 
     /**
