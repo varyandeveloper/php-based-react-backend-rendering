@@ -32,7 +32,7 @@ class Config
      */
     public static function setAppSource($appSource)
     {
-        self::$_appSource = $appSource;
+        self::$_appSource = file_get_contents($appSource);
     }
 
     /**
@@ -40,7 +40,7 @@ class Config
      */
     public static function setReactSource($reactSource)
     {
-        self::$_reactSource = $reactSource;
+        self::$_reactSource = file_get_contents($reactSource);
     }
 
     /**
